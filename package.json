@@ -1,0 +1,29 @@
+{
+  "name": "react-timespan",
+  "version": "1.0.0",
+  "description": "Timeline component with gallery view and scrolling time plots.",
+  "main": "./dist/index.js",
+  "repository": "git@github.com:colepatrickturner/react-timespan.git",
+  "author": "Cole Turner <turner.cole@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "6",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-es2015": "6",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "esdoc": "^0.5.2",
+    "eslint": "^3.19.0"
+  },
+  "scripts": {
+    "build": "babel ./src --presets babel-preset-es2015,stage-0,babel-preset-react --out-dir dist && esdoc",
+    "lint": "eslint ./src"
+  },
+  "files": [
+    "dist/",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "moment-mini": "^2.18.1"
+  }
+}

@@ -1,0 +1,272 @@
+$primary-color: #4488b4;
+$secondary-color: #df7100;
+
+.timeline {
+  $breakingPoint: 700px;
+
+  .gallery {
+    $arrowWidth: 8px;
+
+    position: relative;
+    overflow: hidden;
+
+    .previous,
+    .next {
+
+      background: rgba(255,255,255, 0.35);
+      width: 5em;
+      height: 5em;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      content: " ";
+      padding: 0.25em;
+      z-index: 2;
+      cursor: pointer;
+      transition: all 150ms ease;
+
+      &:hover {
+        background: rgba(255,255,255,0.65);
+      }
+
+      &::before {
+        width: 0;
+        height: 0;
+        content: " ";
+        border: $arrowWidth solid transparent;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .previous {
+      left: 0;
+
+      &.disabled {
+        left: -5em;
+      }
+
+      &::before {
+        border-right-color: #fff;
+        margin-left: calc((-1 * #{$arrowWidth}) / 2);
+      }
+    }
+
+    .next {
+      right: 0;
+
+      &.disabled {
+        right: -5em;
+      }
+
+      &::before {
+        border-left-color: #fff;
+        margin-left: calc(#{$arrowWidth} / 2);
+      }
+    }
+
+    .scroller {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      position: relative;
+      transition: left 500ms ease-in;
+    }
+
+    .activity {
+      flex: 1 0 100%;
+      width: 100%;
+      max-width: 100%;
+
+      .container {
+        background: #fff;
+        border-radius: 0.15em;
+        box-shadow: 0 1em 3em rgba(0, 0, 0, 0.35);
+        color: #666;
+        display: flex;
+        flex-direction: row;
+
+        @media screen and (max-width: $breakingPoint) {
+          display: block;
+        }
+      }
+
+      .image {
+        flex: 0 0 40%;
+
+        img {
+          object-fit: cover;
+          object-position: center center;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .card {
+        padding: 2em 1.5em;
+        position: relative;
+
+        @media screen and (min-width: $breakingPoint) {
+          font-size: 1.35em;
+        }
+      }
+
+      h5 {
+        color: $secondary-color;
+      }
+
+      p {
+        line-height: 1.4;
+        white-space: pre-line;
+      }
+
+      .external-link {
+        font-size: 1em;
+        color: #aaa;
+
+        svg.icon {
+          margin-right: 0.5em;
+          use { fill: #aaa; }
+        }
+
+        &:hover {
+          color: $primary-color;
+          svg use { fill: $primary-color; }
+        }
+      }
+    }
+  }
+
+  .browser {
+    background: rgba(255,255,255,0.65);
+    mix-blend-mode: overlay;
+    max-width: 100%;
+    overflow: hidden;
+    cursor: move;
+    padding-top: 0.75em;
+
+    .ruler {
+      display: flex;
+      flex-direction: column;
+      padding-left: 10%;
+      position: relative;
+    }
+
+    .plot {
+      min-height: 8em;
+      position: relative;
+    }
+
+    .markers {
+      display: flex;
+      flex-direction: row;
+      margin-top: 1em;
+
+      .marker {
+        padding: 0.25em 0.5em;
+        background-color: #fff;
+
+      background-image:
+        linear-gradient(90deg,
+          rgba(73, 73, 73, 0.5) 0,
+          rgba(73, 73, 73, 0.5) 1%,
+          transparent 1%
+        ),
+        linear-gradient(180deg,
+          #ffffff 50%,
+          transparent 50%
+        ),
+        linear-gradient(90deg,
+          transparent 50%,
+          rgba(73, 73, 73, 0.5) 50%,
+          rgba(73, 73, 73, 0.5) 51%,
+          transparent 51%
+        ),
+        linear-gradient(180deg,
+          #ffffff 70%,
+          transparent 70%
+        ),
+        linear-gradient(90deg,
+          transparent 10%,
+          rgba(73, 73, 73, 0.4) 10%,
+          rgba(73, 73, 73, 0.4) 11%,
+          transparent 11%,
+
+          transparent 20%,
+          rgba(73, 73, 73, 0.4) 20%,
+          rgba(73, 73, 73, 0.4) 21%,
+          transparent 21%,
+
+          transparent 30%,
+          rgba(73, 73, 73, 0.4) 30%,
+          rgba(73, 73, 73, 0.4) 31%,
+          transparent 31%,
+
+          transparent 40%,
+          rgba(73, 73, 73, 0.4) 40%,
+          rgba(73, 73, 73, 0.4) 41%,
+          transparent 41%,
+
+          transparent 60%,
+          rgba(73, 73, 73, 0.4) 60%,
+          rgba(73, 73, 73, 0.4) 61%,
+          transparent 61%,
+
+          transparent 70%,
+          rgba(73, 73, 73, 0.4) 70%,
+          rgba(73, 73, 73, 0.4) 71%,
+          transparent 71%,
+
+          transparent 80%,
+          rgba(73, 73, 73, 0.4) 80%,
+          rgba(73, 73, 73, 0.4) 81%,
+          transparent 81%,
+
+          transparent 90%,
+          rgba(73, 73, 73, 0.4) 90%,
+          rgba(73, 73, 73, 0.4) 91%,
+          transparent 91%
+        );
+
+        &:first-child {
+          display: none;
+        }
+      }
+    }
+
+    .activity {
+      background: rgba(255,255,255,0.45);
+      border-radius: 0.15em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+      font-size: 1.2em;
+      line-height: 1.8;
+      white-space: nowrap;
+      text-indent: 0.5em;
+      cursor: pointer;
+      user-select: none;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      span {
+        padding: 0.5em;
+        display: inline-block;
+        position: sticky;
+        left: 0;
+      }
+
+      &:hover,
+      &.focus {
+        background: rgb(255,255,255);
+        border-bottom: 2px solid #eee;
+      }
+
+      &.focus {
+        font-weight: bold;
+        color: $primary-color;
+        border-bottom-color: $primary-color;
+      }
+    }
+  }
+}

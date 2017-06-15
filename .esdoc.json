@@ -1,0 +1,8 @@
+{
+  "title": "React Timespan",
+  "source": "./src",
+  "destination": "./docs",
+  "manual": {
+    "overview": ["./readme.md"]
+  }
+}
