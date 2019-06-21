@@ -13,7 +13,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "esdoc": "^0.5.2",
-    "eslint": "^3.19.0"
+    "eslint": "^4.18.2"
   },
   "scripts": {
     "build": "babel ./src --presets babel-preset-es2015,stage-0,babel-preset-react --out-dir dist && esdoc",
